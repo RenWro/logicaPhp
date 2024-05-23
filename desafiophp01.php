@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Desafio de lógica em PHP</title>
 </head>
 <body bgcolor="#F2EED8">
     <font face="Helvetica" size="4">
@@ -12,9 +12,7 @@
                 <b>Desafio de lógica em PHP</b>
             </font>
         </h1>
-
     <p>
-
         Crie um programa que, após receber os dados de um funcionário:
         Nome, RG, CPF, Data de nascimento, Tipo sanguíneo e fator RH,
         Cargo, Departamento, Salário Bruto, Horário de entrada, Horário de saída (levando
@@ -28,48 +26,53 @@
                    até R$2.666,68 - 9%
                    até R$4.000,00 - 12%
                    até R$7.786,02 - 14%
-
-    <br></p>
-    
-<?php
-    
-    $nome = "Ren Wrobleski";
-    $rg = "43451579";
-    $cpf = "334.620.658-07";
-    $data = "06/09/1984";
-    $tipo = "O";
-    $fator = "negativo";
-    $cargo = "Analista";
-    $dpto = "TI";
-    $bruto = 3000.00;
-    $entrada = 8;
-    $saida = 17;
-    $horario = $saida - $entrada -1;
-      if ($bruto <= 1412.00) {
-          $faixa_salarial = "até R$1.412,00";
-          $imposto_percentual = 0.075;
-      } elseif ($bruto <= 2666.68) {
-          $faixa_salarial = "até R$2.666,68";
-          $imposto_percentual = 0.09;
-      } elseif ($bruto <= 4000.00) {
-          $faixa_salarial = "até R$4.000,00";
-          $imposto_percentual = 0.12;
-      } else {
-          $faixa_salarial = "até R$7.786,02";
-          $imposto_percentual = 0.14;
-      }
-      $imposto = $bruto * $imposto_percentual;
-      $liquido = $bruto - $imposto;
-    $liquido = $bruto - $imposto;
-
-     echo "A funcionária $nome, RG número $rg, CPF número $cpf, data de nascimento $data,
-        tipo sanguíneo $tipo, e fator RH $fator, que ocupa a posição $cargo no departamento $dpto,
-        cujo salário bruto é R$ $bruto, e que trabalha $horario horas por dia,  enquadrando-se na faixa salarial $faixa_salarial, pagando
-        um imposto de R$ $imposto (correspondente a $imposto_percentual% do salário bruto) e o
-        salário líquido que recebe é R$ $liquido.";
+    </p>
+    <h2>
+        <font color="#011C40">
+            Resultado
+        </font>
+    </h2>
 
 
-?>
+    <?php
+        
+        $nome = "Ren Wrobleski";
+        $rg = "43451579";
+        $cpf = "334.620.658-07";
+        $data = "06/09/1984";
+        $tipo = "O";
+        $fator = "negativo";
+        $cargo = "Analista";
+        $dpto = "TI";
+        $bruto = 3000.00;
+        $entrada = 8;
+        $saida = 17;
+        $horario = $saida - $entrada - 1;
+
+        if ($bruto <= 1412.00) {
+            $faixa_salarial = "até R$1.412,00";
+            $imposto_percentual = 0.075;
+        } elseif ($bruto <= 2666.68) {
+            $faixa_salarial = "até R$2.666,68";
+            $imposto_percentual = 0.09;
+        } elseif ($bruto <= 4000.00) {
+            $faixa_salarial = "até R$4.000,00";
+            $imposto_percentual = 0.12;
+        } else {
+            $faixa_salarial = "até R$7.786,02";
+            $imposto_percentual = 0.14;
+        }
+
+        $imposto = $bruto * $imposto_percentual;
+        $liquido = $bruto - $imposto;
+
+        echo "A funcionária <b>$nome</b>, RG número <b>$rg</b>, CPF número <b>$cpf</b>, data de nascimento <b>$data</b>,
+            tipo sanguíneo <b>$tipo</b>, e fator RH <b>$fator</b>, que ocupa a posição <b>$cargo</b> no departamento <b>$dpto</b>,
+            cujo salário bruto é R$ <b>$bruto</b>, e que trabalha <b>$horario</b> horas por dia,  enquadrando-se na faixa salarial <b>$faixa_salarial</b>, pagando
+            um imposto de R$ <b>$imposto</b> (correspondente a <b>$imposto_percentual%</b> do salário bruto) e o
+            salário líquido que recebe é R$ <b>$liquido</b>.";
+    ?>
+
 </font>
 </body>
 </html>
