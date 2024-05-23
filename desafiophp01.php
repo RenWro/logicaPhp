@@ -5,8 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body bgcolor="#F2EED8">
+    <font face="Helvetica" size="4">
+        <h1>
+            <font color="#011C40">
+                <b>Desafio de lógica em PHP</b>
+            </font>
+        </h1>
+
     <p>
+
         Crie um programa que, após receber os dados de um funcionário:
         Nome, RG, CPF, Data de nascimento, Tipo sanguíneo e fator RH,
         Cargo, Departamento, Salário Bruto, Horário de entrada, Horário de saída (levando
@@ -21,8 +29,10 @@
                    até R$4.000,00 - 12%
                    até R$7.786,02 - 14%
 
-    </p>
+    <br></p>
+    
 <?php
+    
     $nome = "Ren Wrobleski";
     $rg = "43451579";
     $cpf = "334.620.658-07";
@@ -34,7 +44,7 @@
     $bruto = 3000.00;
     $entrada = 8;
     $saida = 17;
-    $horario = $entrada - $saida;
+    $horario = $saida - $entrada -1;
       if ($bruto <= 1412.00) {
           $faixa_salarial = "até R$1.412,00";
           $imposto_percentual = 0.075;
@@ -54,12 +64,12 @@
 
      echo "A funcionária $nome, RG número $rg, CPF número $cpf, data de nascimento $data,
         tipo sanguíneo $tipo, e fator RH $fator, que ocupa a posição $cargo no departamento $dpto,
-        cujo salário bruto é R$ $bruto, enquadrando-se na faixa salarial $faixa_salarial, pagando
+        cujo salário bruto é R$ $bruto, e que trabalha $horario horas por dia,  enquadrando-se na faixa salarial $faixa_salarial, pagando
         um imposto de R$ $imposto (correspondente a $imposto_percentual% do salário bruto) e o
         salário líquido que recebe é R$ $liquido.";
 
 
 ?>
-
+</font>
 </body>
 </html>
