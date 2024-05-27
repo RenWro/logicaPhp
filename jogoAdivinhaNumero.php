@@ -18,7 +18,7 @@
     <h2>Jogo adivinha número</h2>
     <?php
     $chancesTotais = 3;
-    $numeroAleatorio = rand(0, 10);
+    $numeroAleatorio = isset($_POST["numeroAleatorio"]) ? $_POST["numeroAleatorio"] : rand(0, 10); // Verifica se há um número aleatório já gerado
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $palpite = $_POST["palpite"];
@@ -28,11 +28,15 @@
                 echo "<p>Parabéns! Você acertou o número $palpite!</p>";
             } else {
                 $chancesTotais--;
-                if ($chancesTotais == 0) {
-                    echo "<p>Desculpe, você usou todas as suas chances. O número era $numeroAleatorio.</p>";
-                } else {
+                if ($chancesTotais > 0) {
                     echo "<p>Ops! O número $palpite não é o correto. Você ainda tem $chancesTotais chances.</p>";
+                } else {
+                    echo "<p>Você perdeu! O número era $numeroAleatorio.</p>";
                 }
+                echo "<form action='jogoAdivinhaNumero.php' method='post'>";
+                echo "<input type='hidden' name='numeroAleatorio' value='$numeroAleatorio'>"; // Passa o número aleatório como um campo oculto
+                echo "<input type='submit' value='Tentar Novamente'>";
+                echo "</form>";
             }
         } else {
             echo "<p>Por favor, insira um número válido entre 0 e 10.</p>";
