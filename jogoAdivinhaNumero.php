@@ -8,6 +8,7 @@
         body {
             background-color: #F2EED8; /* Cor de fundo do corpo */
             font-family: 'Helvetica', sans-serif; /* Tipo de fonte para todo o corpo */
+            text-align: center; /* Alinha todo o texto ao centro */
         }
             h1 {
                 color: #011C40; /* Cor do texto para o título h1 */
@@ -38,6 +39,7 @@
     -->
 <body>
     <h2>Jogo de Adivinhar Número</h2>
+     <img src="https://data.textstudio.com/output/sample/animated/1/2/3/5/guess-2-5321.gif" alt="Adivinhe">
     <?php
     session_start(); // Inicia a sessão para manter estado entre as solicitações
 
