@@ -4,6 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo de Adivinhação - Resultado</title>
+    <style>
+        body {
+            background-color: #F2EED8; /* Cor de fundo do corpo */
+            font-family: 'Helvetica', sans-serif; /* Tipo de fonte para todo o corpo */
+        }
+            h1 {
+                color: #011C40; /* Cor do texto para o título h1 */
+                font-weight: bold; /* Torna o texto em negrito */
+        }
+        input[type="submit"] {
+            background-color: #419116; /* Cor de fundo do botão */
+            color: #011C40; /* Cor do texto do botão */
+            font-family: 'Helvetica', sans-serif; /* Tipo de fonte do botão */
+            padding: 6px 10px; /* Adiciona preenchimento ao botão */
+            cursor: pointer; /* Muda o cursor para indicar que é clicável */
+            border: none; /* Remove a borda padrão */
+
+        }
+        input[type="submit"]:hover {
+            background-color: #e03528; /* Cor de fundo do botão ao passar o mouse */
+        }
+    </style>
 </head>
 <body>
     <!--Em PHP, isset() é uma função usada para verificar se uma variável está definida e não é nula. Ela retorna true
@@ -14,38 +36,43 @@
         palpite está dentro do intervalo permitido e depois usamos o caso para verificar se o palpite dela está correto. No
         final imprima uma mensagem à jogadora a parabenizando-a pelo acerto e deixando-a jpgar novamente.
     -->
-
-    <h2>Jogo adivinha número</h2>
+<body>
+    <h2>Jogo de Adivinhar Número</h2>
     <?php
-    $chancesTotais = 3;
-    $numeroAleatorio = isset($_POST["numeroAleatorio"]) ? $_POST["numeroAleatorio"] : rand(0, 10); // Verifica se há um número aleatório já gerado
+    session_start(); // Inicia a sessão para manter estado entre as solicitações
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (!isset($_SESSION['numeroAleatorio'])) { // Se não existir um número, cria um
+        $_SESSION['numeroAleatorio'] = rand(0, 10);
+        $_SESSION['chancesTotais'] = 3; // Define o total de chances
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["palpite"])) {
         $palpite = $_POST["palpite"];
-
         if ($palpite != "" && is_numeric($palpite) && $palpite >= 0 && $palpite <= 10) {
-            if ($palpite == $numeroAleatorio) {
+            if ($palpite == $_SESSION['numeroAleatorio']) {
                 echo "<p>Parabéns! Você acertou o número $palpite!</p>";
+                session_destroy(); // Encerra a sessão e começa um novo jogo
             } else {
-                $chancesTotais--;
-                if ($chancesTotais > 0) {
-                    echo "<p>Ops! O número $palpite não é o correto. Você ainda tem $chancesTotais chances.</p>";
+                $_SESSION['chancesTotais']--;
+                if ($_SESSION['chancesTotais'] > 0) {
+                    echo "<p>Ops! O número $palpite não é o correto. Você ainda tem {$_SESSION['chancesTotais']} chances.</p>";
                 } else {
-                    echo "<p>Você perdeu! O número era $numeroAleatorio.</p>";
+                    echo "<p>Você perdeu! O número era {$_SESSION['numeroAleatorio']}.</p>";
+                    session_destroy(); // Encerra a sessão e começa um novo jogo
                 }
-                echo "<form action='jogoAdivinhaNumero.php' method='post'>";
-                echo "<input type='hidden' name='numeroAleatorio' value='$numeroAleatorio'>"; // Passa o número aleatório como um campo oculto
-                echo "<input type='submit' value='Tentar Novamente'>";
-                echo "</form>";
             }
         } else {
             echo "<p>Por favor, insira um número válido entre 0 e 10.</p>";
         }
     }
     ?>
+    <form action='jogoAdivinhaNumero.php' method='post'>
+        <label for="palpite">Digite seu palpite:</label>
+        <input type='number' id='palpite' name='palpite' min='0' max='10'>
+        <input type='submit' value='Enviar Palpite'>
+    </form>
 </body>
 </html>
-
 
 
 
