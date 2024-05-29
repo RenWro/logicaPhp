@@ -28,15 +28,7 @@
         }
     </style>
 </head>
-<body>
-    <!--Em PHP, isset() é uma função usada para verificar se uma variável está definida e não é nula. Ela retorna true
-    se a variável estiver definida e não for nula, e false caso contrário. Isso é útil para evitar erros ao tentar
-    acessar variáveis que podem não existir ou que podem ser nulas.
-    -->
-    <!-- Crie um jogo que após gerar valores aleatórios entre 0 e 10 enviado pelo usuário via formulário, verifica se o
-        palpite está dentro do intervalo permitido e depois usamos o caso para verificar se o palpite dela está correto. No
-        final imprima uma mensagem à jogadora a parabenizando-a pelo acerto e deixando-a jpgar novamente.
-    -->
+
 <body>
     <h2>Jogo de Adivinhar Número</h2>
      <img src="https://data.textstudio.com/output/sample/animated/1/2/3/5/guess-2-5321.gif" alt="Adivinhe">
