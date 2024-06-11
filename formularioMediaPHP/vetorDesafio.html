@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Desafio Vetores e Matrizes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fdf0d5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #ffffff;
+            border: 1px solid #003049;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+        .form-container label {
+            display: block;
+            margin-top: 10px;
+            color: #003049;
+        }
+        .form-container input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #003049;
+            border-radius: 5px;
+        }
+        .form-container button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #003049;
+            color: #fdf0d5;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #d62828;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #003049;
+            margin: 10px 0;
+        }
+        p {
+            color: #003049;
+            font-size: 1.2em;
+            text-align: center;
+            margin-top: 0;
+        }
+    </style>
+    <script>
+        function validarNota(nota) {
+            const notaFloat = parseFloat(nota);
+            if (isNaN(notaFloat)) {
+                return "Erro, não é um número.";
+            }
+            if (notaFloat < 0 || notaFloat > 10) {
+                return "Nota deve ser entre 0 e 10.";
+            }
+            return null;
+        }
+
+        function validarFormulario() {
+            const nome = document.getElementById('nome').value.trim();
+            const materia = document.getElementById('materia').value.trim();
+            const notas = [
+                document.getElementById('b1'),
+                document.getElementById('b2'),
+                document.getElementById('b3'),
+                document.getElementById('b4')
+            ];
+
+            if (nome === "" || materia === "") {
+                alert("Por favor, preencha todos os campos.");
+                if (nome === "") document.getElementById('nome').focus();
+                else document.getElementById('materia').focus();
+                return false;
+            }
+
+            for (let i = 0; i < notas.length; i++) {
+                const erro = validarNota(notas[i].value.trim());
+                if (erro) {
+                    alert(`Nota ${i+1} Bimestre: ${erro}`);
+                    notas[i].focus();
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+<div class="form-container">
+    <p>Cadastro de notas</p>
+    <hr>
+    <form method="post" action="vetorDesafio.php" onsubmit="return validarFormulario();">
+        <label>Nome</label>
+        <input type="text" name="nome" id="nome" placeholder="Digite o nome da aluna">
+        <hr>
+        <label>Matéria</label>
+        <input type="text" name="materia" id="materia" placeholder="Digite a matéria">
+        <hr>
+        <label>1° Bimestre</label>
+        <input type="text" name="b1" id="b1" placeholder="Digite a nota do 1° Bimestre">
+        <hr>
+        <label>2° Bimestre</label>
+        <input type="text" name="b2" id="b2" placeholder="Digite a nota do 2° Bimestre">
+        <hr>
+        <label>3° Bimestre</label>
+        <input type="text" name="b3" id="b3" placeholder="Digite a nota do 3° Bimestre">
+        <hr>
+        <label>4° Bimestre</label>
+        <input type="text" name="b4" id="b4" placeholder="Digite a nota do 4° Bimestre">
+        <button type="submit">Cadastrar</button>
+    </form>
+</div>
+</body>
+</html>
