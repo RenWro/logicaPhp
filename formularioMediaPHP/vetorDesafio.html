@@ -86,8 +86,15 @@
 
             if (nome === "" || materia === "") {
                 alert("Por favor, preencha todos os campos.");
-                if (nome === "") document.getElementById('nome').focus();
-                else document.getElementById('materia').focus();
+                if (nome === "") {
+                    const nomeInput = document.getElementById('nome');
+                    nomeInput.value = "";
+                    nomeInput.focus();
+                } else {
+                    const materiaInput = document.getElementById('materia');
+                    materiaInput.value = "";
+                    materiaInput.focus();
+                }
                 return false;
             }
 
@@ -95,6 +102,7 @@
                 const erro = validarNota(notas[i].value.trim());
                 if (erro) {
                     alert(`Nota ${i+1} Bimestre: ${erro}`);
+                    notas[i].value = "";
                     notas[i].focus();
                     return false;
                 }
