@@ -43,8 +43,7 @@ Para baixar o XAMPP, utilize o link abaixo
 <br>
 <div style="display: flex; justify-content: center; align-items: center;">
 
-    <img src="https://github.com/RenWro/logicaPhp/assets/134458911/f0ee57cc-dca2-439d-b205-2bcb3c839847"> 
+![image](https://github.com/RenWro/logicaPhp/assets/134458911/f0ee57cc-dca2-439d-b205-2bcb3c839847)
 
 </div>
-![image](https://github.com/RenWro/logicaPhp/assets/134458911/f0ee57cc-dca2-439d-b205-2bcb3c839847)
 
