@@ -5,7 +5,7 @@ Exercícios de Lógica em PHP - Senac Técnico de Informática para Internet
 | -------------------------- |
 | PHP é uma linguagem de programação que possui uma sintaxe simples e dinâmica. Com ela podemos criar sites e serviços para a web com uma ampla variedade de recursos disponíveis|
 
-<h2>PHP é uma linguagem de programação que possui uma sintaxe simples e dinâmica. Com ela podemos criar sites e serviços para a web com uma ampla variedade de recursos disponíveis.</h2>
+<p>PHP é uma linguagem de programação que possui uma sintaxe simples e dinâmica. Com ela podemos criar sites e serviços para a web com uma ampla variedade de recursos disponíveis.</p>
 
 
 <h1>Apresentando o PHP</h1>
@@ -35,3 +35,11 @@ Em dezembro de 2015 foi lançada o PHP 7. Esta versão foi liderada principalmen
 É possível encontrar muita documentação na internet, em videos, forums e grupos do telegram, mas sem dúvida, a melhor que você poderá encontrar será o seu próprio manual online, traduzido em diversas linguás.
 
 https://www.php.net/manual/pt_BR
+
+<h2>Ativando o PHP (uma possibilidade)</h2>
+<br>
+Para baixar o XAMPP, utilize o link abaixo
+<a href=“https://www.apachefriends.org/pt_br/index.html“>XAMPP</a>
+
+![image](https://github.com/RenWro/logicaPhp/assets/134458911/f0ee57cc-dca2-439d-b205-2bcb3c839847)
+
