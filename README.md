@@ -1,19 +1,24 @@
 # Lógica em PHP
 Exercícios de Lógica em PHP - Senac Técnico de Informática para Internet
 
-description
-PHP é uma linguagem de programação que possui uma sintaxe simples e dinâmica. Com ela podemos criar sites e serviços para a web com uma ampla variedade de recursos disponíveis.
-Apresentando o PHP
+| Description |
+| --- | --- |
+| PHP é uma linguagem de programação que possui uma sintaxe simples e dinâmica. Com ela podemos criar sites e serviços para a web com uma ampla variedade de recursos disponíveis|
 
-##O que é PHP?
+<h2>PHP é uma linguagem de programação que possui uma sintaxe simples e dinâmica. Com ela podemos criar sites e serviços para a web com uma ampla variedade de recursos disponíveis.</h2>
+
+
+<h1>Apresentando o PHP</h1>
+
+<h2>O que é PHP?</h2>
 PHP, que significa "PHP: Hypertext Preprocessor", é uma linguagem de programação de ampla utilização, interpretada, que é especialmente interessante para desenvolvimento para a web e pode ser mesclada dentro do código HTML e outros tipos de documentos. A sintaxe da linguagem lembra C, Java e Perl, e é fácil de aprender. O objetivo principal da linguagem é permitir a desenvolvedores escreverem páginas que serão geradas dinamicamente rapidamente, mas você pode fazer muito mais do que isso com PHP.
 
-##Pra que serve o PHP?
+<h2>Pra que serve o PHP?</h2>
 Como pode ser visto no próximo tópico o PHP foi criado inicialmente para produzir páginas pessoais em HTML, mas isso já mudou a muitos anos. Atualmente o PHP é amplamente usado não só na confecção de páginas HTML, mas também na criação de APIs e WebServices ****em geral gerando saídas em formatos de dados apropriados como JSON e XML. Também é comum ver o PHP em Bots e rotinas que rodam no lado do servidor como Queues e WebHooks. Há ainda implementações de ferramentas que usam PHP de forma assíncrona abrindo portas para Chats e comunicações em Realtime através de sockets.
 
 PHP acabou se tornando uma boa opção para uma linguagem de template, mas não parou por ai e correntemente pode ser usado em diversos tipos de aplicações e finalidades.
 
-##A trajetória do PHP
+<h2>A trajetória do PHP</h2>
 A primeira versão do PHP foi escrita na linguagem de programação C por Rasmus Lerdorf em 1994 para uso no monitoramento de seu currículo on-line e informações pessoais. Por esse motivo, PHP originalmente significava "Personal Home Page". Lerdorf combinou PHP com seu próprio Form Interpreter, lançando a combinação publicamente como PHP/FI (geralmente referido como PHP 2.0) em 8 de junho de 1995.
 
 Dois programadores, Zeev Suraski e Andi Gutmans (que viriam a criar a Zend), reconstruíram o núcleo do PHP, lançando o resultado atualizado como PHP/FI 2 em 1997. Neste momento, a sigla foi formalmente alterada para PHP: "HyperText Preprocessor" (este é um exemplo de acrônimo recursivo: onde o próprio acrônimo está em sua própria definição).
@@ -26,7 +31,7 @@ O PHP 5 foi lançado em julho de 2004, com o motor Zend atualizado. Como uma das
 
 Em dezembro de 2015 foi lançada o PHP 7. Esta versão foi liderada principalmente por Dmitry Stogov, Xinchen Hui e Nikita Popov e foi uma reescrita completa do core da linguagem. As implementações feitas no PHP 7 colocaram o PHP de volta no topo das opções de linguagens para a web já que trouxeram um ganho de performance muito grande e correções de problemas críticos.
 
-##Documentação oficial
+<h1>Documentação oficial</h1>
 É possível encontrar muita documentação na internet, em videos, forums e grupos do telegram, mas sem dúvida, a melhor que você poderá encontrar será o seu próprio manual online, traduzido em diversas linguás.
 
 https://www.php.net/manual/pt_BR
