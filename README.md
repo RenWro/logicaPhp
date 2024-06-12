@@ -2,7 +2,7 @@
 Exercícios de Lógica em PHP - Senac Técnico de Informática para Internet
 
 | Description |
-| --- | --- |
+| -------------------------- |
 | PHP é uma linguagem de programação que possui uma sintaxe simples e dinâmica. Com ela podemos criar sites e serviços para a web com uma ampla variedade de recursos disponíveis|
 
 <h2>PHP é uma linguagem de programação que possui uma sintaxe simples e dinâmica. Com ela podemos criar sites e serviços para a web com uma ampla variedade de recursos disponíveis.</h2>
