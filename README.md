@@ -39,11 +39,9 @@ https://www.php.net/manual/pt_BR
 <h2>Ativando o PHP (uma possibilidade)</h2>
 <br>
 Para baixar o XAMPP, utilize o link abaixo
-<a href=“https://www.apachefriends.org/pt_br/index.html“>XAMPP</a>
 <br>
-<div style="display: flex; justify-content: center; align-items: center;">
-
+[XAMPP](https://www.apachefriends.org/pt_br/index.html).
 ![image](https://github.com/RenWro/logicaPhp/assets/134458911/f0ee57cc-dca2-439d-b205-2bcb3c839847)
 
-</div>
+
 
