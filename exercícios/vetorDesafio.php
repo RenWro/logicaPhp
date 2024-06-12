@@ -64,7 +64,11 @@
 
 <?php
 function validarNota($nota) {
+    $nota = str_replace(',', '.', $nota); // Substituir vírgula por ponto
     if (!is_numeric($nota) || $nota < 0 || $nota > 10) {
+        return false;
+    }
+    if (preg_match('/^\d+(\.\d{1,2})?$/', $nota) !== 1) {
         return false;
     }
     return true;
@@ -87,10 +91,10 @@ function determinarSituacao($media) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = trim($_POST['nome']);
     $materia = trim($_POST['materia']);
-    $b1 = trim($_POST['b1']);
-    $b2 = trim($_POST['b2']);
-    $b3 = trim($_POST['b3']);
-    $b4 = trim($_POST['b4']);
+    $b1 = str_replace(',', '.', trim($_POST['b1']));
+    $b2 = str_replace(',', '.', trim($_POST['b2']));
+    $b3 = str_replace(',', '.', trim($_POST['b3']));
+    $b4 = str_replace(',', '.', trim($_POST['b4']));
 
     if (empty($nome) || empty($materia) || !validarNota($b1) || !validarNota($b2) || !validarNota($b3) || !validarNota($b4)) {
         echo "Erro: Todos os campos devem ser preenchidos com notas válidas.";
