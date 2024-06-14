@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #000000;;
+            background-color: #11111f;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -67,6 +67,7 @@
     </style>
 </head>
 <body>
+<body>
 <img src="img/seven.png" alt="Seven+">
 <div class="form-container">
     <form id="planos" method="post" action="planos_process.php">
@@ -80,28 +81,61 @@
         <button type="button" onclick="mostrarPagamento()">Escolher Plano</button>
     </form>
     <div id="pagamento" style="display:none;">
-        <form id="pagamento_form" method="post" action="planos_process.php">
+        <form id="pagamento_form" method="post" action="planos_process.php" onsubmit="return validarForm()">
             <h2>Dados de Pagamento</h2>
             <input type="hidden" name="tipo_plano" id="plano_escolhido">
             <label>Nome no Cartão</label>
             <input type="text" name="nome_cartao" required>
             <label>Número do Cartão</label>
-            <input type="text" name="numero_cartao" required>
+            <input type="text" name="numero_cartao" placeholder="0000 0000 0000 0000" required>
             <label>Código de Validação</label>
             <input type="text" name="codigo_validacao" required>
             <label>Vencimento</label>
             <input type="text" name="vencimento" placeholder="MM/AA" required>
             <label>CPF</label>
-            <input type="text" name="cpf" required>
+            <input type="text" name="cpf" id="cpf" required>
             <button type="submit">Próxima Etapa</button>
         </form>
     </div>
 </div>
+
 <script>
     function mostrarPagamento() {
         var plano = document.getElementById("tipo_plano").value;
         document.getElementById("plano_escolhido").value = plano;
         document.getElementById("pagamento").style.display = "block";
+    }
+
+    function validarCPF(cpf) {
+        var strCPF = cpf.replace(/[^\d]+/g, '');
+        var Soma;
+        var Resto;
+        Soma = 0;
+        if (strCPF == "00000000000") return false;
+
+        for (i = 1; i <= 9; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
+        Resto = (Soma * 10) % 11;
+
+        if ((Resto == 10) || (Resto == 11)) Resto = 0;
+        if (Resto != parseInt(strCPF.substring(9, 10))) return false;
+
+        Soma = 0;
+        for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (12 - i);
+        Resto = (Soma * 10) % 11;
+
+        if ((Resto == 10) || (Resto == 11)) Resto = 0;
+        if (Resto != parseInt(strCPF.substring(10, 11))) return false;
+
+        return true;
+    }
+
+    function validarForm() {
+        var cpfInput = document.getElementById("cpf");
+        if (!validarCPF(cpfInput.value)) {
+            alert("CPF inválido!");
+            return false;
+        }
+        return true;
     }
 </script>
 </body>
