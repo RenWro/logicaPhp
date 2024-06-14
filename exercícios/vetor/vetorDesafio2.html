@@ -2,7 +2,8 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Desafio Vetores e Matrizes</title>
     <style>
@@ -16,28 +17,35 @@
             height: 100vh;
             margin: 0;
         }
-        .form-container {
-            background-color: #ffffff;
-            border: 1px solid #003049;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+        table {
             width: 80%;
-            max-width: 600px;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
-        .form-container label {
-            display: block;
-            margin-top: 10px;
+        table, th, td {
+            border: 1px solid #003049;
+        }
+        th {
+            background-color: #003049;
+            color: #fdf0d5;
+            padding: 10px;
+            text-align: center;
+        }
+        td {
+            padding: 10px;
+            text-align: center;
             color: #003049;
         }
-        .form-container input {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #003049;
-            border-radius: 5px;
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
         }
-        .form-container button {
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        img {
+            margin-top: 20px;
+        }
+        .back-button {
             margin-top: 20px;
             padding: 10px 20px;
             border: none;
@@ -45,102 +53,97 @@
             color: #fdf0d5;
             border-radius: 5px;
             cursor: pointer;
+            text-decoration: none;
         }
-        .form-container button:hover {
+        .back-button:hover {
             background-color: #d62828;
         }
-        hr {
-            border: none;
-            border-top: 1px solid #003049;
-            margin: 10px 0;
-        }
-        p {
-            color: #003049;
-            font-size: 1.2em;
-            text-align: center;
-            margin-top: 0;
-        }
     </style>
-    <script>
-        function validarNota(nota) {
-            const notaFormatada = nota.replace(',', '.'); // Substituir vírgula por ponto
-            const notaFloat = parseFloat(notaFormatada);
-            const regex = /^\d+(\.\d{1,2})?$/; // Regex para validar até duas casas decimais
-
-            if (isNaN(notaFloat)) {
-                return "Erro, não é um número.";
-            }
-            if (notaFloat < 0 || notaFloat > 10) {
-                return "Nota deve ser entre 0 e 10.";
-            }
-            if (!regex.test(notaFormatada)) {
-                return "Nota deve ter no máximo duas casas decimais.";
-            }
-            return null;
-        }
-
-        function validarFormulario() {
-            const nome = document.getElementById('nome').value.trim();
-            const materia = document.getElementById('materia').value.trim();
-            const notas = [
-                document.getElementById('b1'),
-                document.getElementById('b2'),
-                document.getElementById('b3'),
-                document.getElementById('b4')
-            ];
-
-            if (nome === "" || materia === "") {
-                alert("Por favor, preencha todos os campos.");
-                if (nome === "") {
-                    const nomeInput = document.getElementById('nome');
-                    nomeInput.value = "";
-                    nomeInput.focus();
-                } else {
-                    const materiaInput = document.getElementById('materia');
-                    materiaInput.value = "";
-                    materiaInput.focus();
-                }
-                return false;
-            }
-
-            for (let i = 0; i < notas.length; i++) {
-                const erro = validarNota(notas[i].value.trim());
-                if (erro) {
-                    alert(`Nota ${i+1} Bimestre: ${erro}`);
-                    notas[i].value = "";
-                    notas[i].focus();
-                    return false;
-                }
-            }
-
-            return true;
-        }
-    </script>
 </head>
 <body>
-<div class="form-container">
-    <p>Cadastro de notas</p>
-    <hr>
-    <form method="post" action="vetorDesafio2.php" onsubmit="return validarFormulario();">
-        <label>Nome</label>
-        <input type="text" name="nome" id="nome" placeholder="Digite o nome da aluna">
-        <hr>
-        <label>Matéria</label>
-        <input type="text" name="materia" id="materia" placeholder="Digite a matéria">
-        <hr>
-        <label>1° Bimestre</label>
-        <input type="text" name="b1" id="b1" placeholder="Digite a nota do 1° Bimestre">
-        <hr>
-        <label>2° Bimestre</label>
-        <input type="text" name="b2" id="b2" placeholder="Digite a nota do 2° Bimestre">
-        <hr>
-        <label>3° Bimestre</label>
-        <input type="text" name="b3" id="b3" placeholder="Digite a nota do 3° Bimestre">
-        <hr>
-        <label>4° Bimestre</label>
-        <input type="text" name="b4" id="b4" placeholder="Digite a nota do 4° Bimestre">
-        <button type="submit">Cadastrar</button>
-    </form>
-</div>
+<!--O nth-child é uma ferramenta poderosa no CSS para aplicar estilos com base na posição de um elemento filho dentro
+de seu pai. Pode ser usado para selecionar elementos específicos, alternar estilos, criar padrões e muito mais.
+odd (ímpares): Seleciona todos os filhos ímpares e even os pares. Tem também 2n que seleciona todos os pares e
+an+b: Onde a e b são números inteiros. Seleciona filhos que satisfazem a fórmula.-->
+
+<?php
+function validarNota($nota) {
+    $nota = str_replace(',', '.', $nota); // Substituir vírgula por ponto
+    if (!is_numeric($nota) || $nota < 0 || $nota > 10) {
+        return false;
+    }
+    if (preg_match('/^\d+(\.\d{1,2})?$/', $nota) !== 1) {
+        return false;
+    }
+    return true;
+}
+
+function calcularMedia($notas) {
+    return round(array_sum($notas) / count($notas), 2);
+}
+
+//Colocar  o determinarSituacao dentro de calcularMedia
+
+function determinarSituacao($media) {
+    if ($media >= 7) {
+        $resp = [
+            "Aprovado",
+            'https://media.giphy.com/media/jPND4RxDMsgXoZoy3N/giphy.gif'
+        ];
+        return $resp;
+    } elseif ($media >= 5) {
+        $resp = [
+                "Recuperação",
+                'https://i.gifer.com/VHW2.gif'
+            ];
+            return $resp;
+        //return "Recuperação";
+    } else {
+        $resp = [
+                "Reprovado",
+                'https://capricho.abril.com.br/wp-content/uploads/2016/08/v8.gif'
+            ];
+            return $resp;
+        //return "Reprovado";
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nome = trim($_POST['nome']);
+    $materia = trim($_POST['materia']);
+    $b1 = str_replace(',', '.', trim($_POST['b1']));
+    $b2 = str_replace(',', '.', trim($_POST['b2']));
+    $b3 = str_replace(',', '.', trim($_POST['b3']));
+    $b4 = str_replace(',', '.', trim($_POST['b4']));
+
+    if (empty($nome) || empty($materia) || !validarNota($b1) || !validarNota($b2) || !validarNota($b3) || !validarNota($b4)) {
+        echo "Erro: Todos os campos devem ser preenchidos com notas válidas.";
+        exit;
+    }
+
+    $notas = [$b1, $b2, $b3, $b4];
+    $media = calcularMedia($notas);
+    $resp = determinarSituacao($media);
+
+
+    echo "<table>";
+    echo "<tr><th>Nome</th><th>Matéria</th><th>Nota 1B</th><th>Nota 2B</th><th>Nota 3B</th><th>Nota 4B</th><th>Média Final</th><th>Situação</th></tr>";
+    echo "<tr><td>$nome</td><td>$materia</td><td>$b1</td><td>$b2</td><td>$b3</td><td>$b4</td><td>$media</td><td>$resp[0]</td></tr>";
+    echo "</table>";
+/*
+    if ($resp[0] == "Aprovado") {
+        $gifUrl = $resp[1];
+    } elseif ($resp[0] == "Recuperação") {
+        $gifUrl = $resp[1];
+    } else {
+        $gifUrl = $resp[1];
+    }
+*/
+    echo "<img src='$resp[1]' alt='Gif de situação'>";
+
+    echo "<a class='back-button' href='vetorDesafio2.html'>Voltar</a>";
+}
+?>
+
 </body>
 </html>
