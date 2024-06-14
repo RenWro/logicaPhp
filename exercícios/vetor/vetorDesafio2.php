@@ -82,13 +82,29 @@ function calcularMedia($notas) {
     return round(array_sum($notas) / count($notas), 2);
 }
 
+//Colocar  o determinarSituacao dentro de calcularMedia
+
 function determinarSituacao($media) {
     if ($media >= 7) {
-        return "Aprovado";
+        $resp = [
+            "Aprovado",
+            'https://media.giphy.com/media/jPND4RxDMsgXoZoy3N/giphy.gif'
+        ];
+        return $resp;
     } elseif ($media >= 5) {
-        return "Recuperação";
+        $resp = [
+                "Recuperação",
+                'https://i.gifer.com/VHW2.gif'
+            ];
+            return $resp;
+        //return "Recuperação";
     } else {
-        return "Reprovado";
+        $resp = [
+                "Reprovado",
+                'https://capricho.abril.com.br/wp-content/uploads/2016/08/v8.gif'
+            ];
+            return $resp;
+        //return "Reprovado";
     }
 }
 
@@ -107,24 +123,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $notas = [$b1, $b2, $b3, $b4];
     $media = calcularMedia($notas);
-    $situacao = determinarSituacao($media);
+    $resp = determinarSituacao($media);
+
 
     echo "<table>";
     echo "<tr><th>Nome</th><th>Matéria</th><th>Nota 1B</th><th>Nota 2B</th><th>Nota 3B</th><th>Nota 4B</th><th>Média Final</th><th>Situação</th></tr>";
-    echo "<tr><td>$nome</td><td>$materia</td><td>$b1</td><td>$b2</td><td>$b3</td><td>$b4</td><td>$media</td><td>$situacao</td></tr>";
+    echo "<tr><td>$nome</td><td>$materia</td><td>$b1</td><td>$b2</td><td>$b3</td><td>$b4</td><td>$media</td><td>$resp[0]</td></tr>";
     echo "</table>";
-
-    if ($situacao == "Aprovado") {
-        $gifUrl = 'https://media.giphy.com/media/jPND4RxDMsgXoZoy3N/giphy.gif';
-    } elseif ($situacao == "Recuperação") {
-        $gifUrl = 'https://i.gifer.com/VHW2.gif';
+/*
+    if ($resp[0] == "Aprovado") {
+        $gifUrl = $resp[1];
+    } elseif ($resp[0] == "Recuperação") {
+        $gifUrl = $resp[1];
     } else {
-        $gifUrl = 'https://capricho.abril.com.br/wp-content/uploads/2016/08/v8.gif';
+        $gifUrl = $resp[1];
     }
+*/
+    echo "<img src='$resp[1]' alt='Gif de situação'>";
 
-    echo "<img src='$gifUrl' alt='Gif de situação'>";
-
-    echo "<a class='back-button' href='vetorDesafio.html'>Voltar</a>";
+    echo "<a class='back-button' href='vetorDesafio2.html'>Voltar</a>";
 }
 ?>
 
