@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #000000;
+            background-color: #11111f;
             display: flex;
             flex-direction: column;
             align-items: center;
