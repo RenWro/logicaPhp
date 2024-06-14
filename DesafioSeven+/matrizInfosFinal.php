@@ -8,13 +8,17 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #000000;
+            background-color: #11111f;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
+        }
+        h1{
+            font-family: Arial, sans-serif;
+            color: #5bc2e2;
         }
         table {
             width: 80%;
@@ -25,8 +29,8 @@
             border: 1px solid #003049;
         }
         th {
-            background-color: #003049;
-            color: #fdf0d5;
+            background-color: #1c2434;
+            color: #5bc2e2;
             padding: 10px;
             text-align: center;
         }
@@ -42,14 +46,14 @@
             background-color: #f1f1f1;
         }
         img {
-            max-width: 150px;
+            max-width: 350px;
             margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 <img src="img/seven.png" alt="Seven+">
-<h1>Informações Finais</h1>
+<h1>Matriz Informações</h1>
 <table>
     <tr>
         <th>Nome</th>
