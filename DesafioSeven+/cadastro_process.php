@@ -11,11 +11,14 @@ if (empty($nome) || empty($email) || empty($senha) || $senha !== $confirmar_senh
     exit;
 }
 
+// Hashing the password before storing
+$senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+
 $_SESSION['dados'] = [
     'usuario' => [
         'nome' => $nome,
         'email' => $email,
-        'senha' => $senha,
+        'senha' => $senha_hash,
     ]
 ];
 
