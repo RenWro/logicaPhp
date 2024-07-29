@@ -38,7 +38,7 @@ https://www.php.net/manual/pt_BR
 
 <h2>Ativando o PHP (uma possibilidade)</h2>
 <br>
-Para baixar o XAMPP, utilize o link abaixo
+Para baixar o XAMPP, utilize o link abaixo:
 <br>
 
 [XAMPP](https://www.apachefriends.org/pt_br/index.html)
